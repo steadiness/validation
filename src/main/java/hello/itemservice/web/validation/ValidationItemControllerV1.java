@@ -49,15 +49,6 @@ public class ValidationItemControllerV1 {
         Map<String, String> errors = new HashMap<>();
 
         //검증 로직
-<<<<<<< HEAD
-        if(!StringUtils.hasText(item.getItemName())){
-            errors.put("itemName", "상품 이름은 필수입니다.");
-        }
-        if(item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000){
-            errors.put("price", "가격은 1,000 ~ 1,000,000 까지 허용합니다.");
-        }
-        if(item.getQuantity() == null || item.getQuantity() >= 9999){
-=======
         if (!StringUtils.hasText(item.getItemName())) {
             errors.put("itemName", "상품 이름은 필수입니다.");
         }
@@ -65,32 +56,20 @@ public class ValidationItemControllerV1 {
             errors.put("price", "가격은 1,000 ~ 1,000,000 까지 허용합니다.");
         }
         if (item.getQuantity() == null || item.getQuantity() >= 9999) {
->>>>>>> feat/v2
             errors.put("quantity", "수량은 최대 9,999 까지 허용합니다.");
         }
 
         //특정 필드가 아닌 복합 룰 검증
-<<<<<<< HEAD
-        if(item.getPrice() != null && item.getQuantity() != null){
-            int resultPrice = item.getPrice() * item.getQuantity();
-            if(resultPrice < 10000){
-=======
         if (item.getPrice() != null && item.getQuantity() != null) {
             int resultPrice = item.getPrice() * item.getQuantity();
             if (resultPrice < 10000) {
->>>>>>> feat/v2
                 errors.put("globalError", "가격 * 수량의 합은 10,000원 이상이어야 합니다. 현재 값 = " + resultPrice);
             }
         }
 
         //검증에 실패하면 다시 입력 폼으로
-<<<<<<< HEAD
-        if(!errors.isEmpty()){
-            log.info("errors = {}", errors);
-=======
         if (!errors.isEmpty()) {
             log.info("errors = {} ", errors);
->>>>>>> feat/v2
             model.addAttribute("errors", errors);
             return "validation/v1/addForm";
         }
@@ -116,3 +95,4 @@ public class ValidationItemControllerV1 {
     }
 
 }
+
