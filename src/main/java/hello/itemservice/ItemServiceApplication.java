@@ -10,4 +10,9 @@ public class ItemServiceApplication {
 		SpringApplication.run(ItemServiceApplication.class, args);
 	}
 
+	/*@Override
+	public Validator getValidator(){
+		return new ItemValidator();
+	}*/
+
 }
